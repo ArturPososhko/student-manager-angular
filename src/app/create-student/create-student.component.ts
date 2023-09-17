@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Student } from '../student';
 import { StudentService } from '../student.service';
+import { Student } from '../student';
 
 @Component({
   selector: 'app-create-student',
@@ -8,15 +8,23 @@ import { StudentService } from '../student.service';
   styleUrls: ['./create-student.component.css']
 })
 export class CreateStudentComponent {
-  constructor(private studentService : StudentService) {
+  isAddedProcessing = false;
+  isAddedSuccessful = false;
+
+  constructor(private studentService : StudentService){
 
   }
 
   save(name : string, email : string){
+    //alert("Imie i nazwisko:" + name +", email: " + email);
+    this.isAddedProcessing = true;
+
     this.studentService.addStudent({name, email} as Student)
     .subscribe(()=>{
-      alert("Sukces!")
-    })
+      //alert('Sukces operacji!');
+      this.isAddedProcessing = false;
+      this.isAddedSuccessful = true;
+    });
 
     return false;
   }
