@@ -1,0 +1,7 @@
+.custom-nav-color {
+    background-color: rgba(0, 62, 59, 0.71) !important;
+}
+
+.nav-link, .navbar-brand {
+    color: white !important;
+}
