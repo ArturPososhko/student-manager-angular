@@ -5,3 +5,7 @@
 .nav-link, .navbar-brand {
     color: white !important;
 }
+
+.active-nav{
+    font-weight: bold;
+}
